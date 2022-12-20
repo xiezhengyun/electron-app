@@ -22,4 +22,4 @@ jobs:
         # 该步骤运行的终端命令，进入仓库的目录，安装依赖，运行编译命令
         run: yarn install && yarn run make
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.TOKEN }}
