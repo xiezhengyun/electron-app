@@ -2,8 +2,8 @@ name: build
 
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - main
 
 jobs:
   release:
@@ -25,9 +25,9 @@ jobs:
           GH_TOKEN: ${{ secrets.TOKEN }}
 
       - name: Cleanup Artifacts for Windows
-          if: matrix.os == 'windows-latest'
-          run: |
-            npx rimraf "dist/!(*.exe)"
+        if: matrix.os == 'windows-latest'
+        run: |
+          npx rimraf "dist/!(*.exe)"
         
       - name: Cleanup Artifacts for MacOS
         if: matrix.os == 'macos-latest'
