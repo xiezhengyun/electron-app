@@ -24,15 +24,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
 
-      - name: Cleanup Artifacts for Windows
-        if: matrix.os == 'windows-latest'
-        run: |
-          npx rimraf "out/!(*.exe)"
-        
-      - name: Cleanup Artifacts for MacOS
-        if: matrix.os == 'macos-latest'
-        run: |
-          npx rimraf "out/!(*.dmg)"
+      
           
       - name: upload artifacts
         uses: actions/upload-artifact@v3.0.0
